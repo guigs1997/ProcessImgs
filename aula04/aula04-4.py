@@ -5,14 +5,14 @@ imgRGB  = cv2.imread('data/lena.jpg')
 imgGray = cv2.cvtColor(imgRGB, cv2.COLOR_BGR2GRAY)
 
 
-#Numpy is a optimized library = fast array calculations. 
+#Numpy is a optimized library = fast array calculations. But its not good when used too many times
 #So simply accessing each and every pixel values and modifyin it will be very slow and it is discouraged.
 
 
-#get RGB pixel value at 100x100 
+#pega UM pixel BGR na posição 100x100 
 pixel = imgRGB[100,100]
 
-#print rgb value of pixel
+#print BGR value of pixel
 print('RGB value: ', pixel)
 
 #get Gray pixel value at 100x100
