@@ -35,6 +35,7 @@ while True:
    img = images[i]
    cv2.imshow("Fotos", img)
    cv2.waitKey(5000)
+   cv2.addWeighted()
    i+=1
    if cv2.waitKey(1) & 0xFF == ord('q'):
     break 
