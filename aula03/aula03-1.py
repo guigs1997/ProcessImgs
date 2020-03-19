@@ -30,39 +30,34 @@ for img in glob.glob("data/*.jpg"):
     n = cv2.putText(n,cutname(img),posicao, 1, 2, 0) #coloca o nome da imagem na borda
     images.append(n)
 
-ind  = 0
+ind=0
 i=1.0
 j=0.0
 ok=True
 
 while ok: 
-    if cv2.waitKey() == 0x51: #fecha janela ao pressionar Q
-        ok=False     
-    if cv2.waitKey() == 0x71: #fecha janela ao pressionar q
-        ok=False     
-
 
     n = images[ind]
     cv2.imshow('Img',n)
 
     for repete in range(3):
-        cv2.waitKey(5000) #espera por 5 segundos
+        cv2.waitKey(1000) #espera por 5 segundos
         if(ind<3): 
-            for contador in range(10):           
-                i-=0.10
-                j+=0.10
+            for contador in range(5):           
+                i-=0.20
+                j+=0.20
                 n = cv2.addWeighted(images[ind],i,images[ind+1],j,1) #aplica transição
                 cv2.imshow('Img',n)
                 cv2.waitKey(100)   
             ind+=1
             i=1.0
             j=0.0   
-        
-        #if cv2.waitKey() == 0xcb: #seta esquerda
-         #   ind+=1    
-        #if cv2.waitKey() == 0xcd: #seta direita
-           # ind-=1
-
+    
+    
+    if cv2.waitKey(0) == 0x51: #fecha janela ao pressionar Q 2 vezes(?)
+        ok=False     
+    if cv2.waitKey(0) == 0x71: #fecha janela ao pressionar 
+        ok=False    
  
 #
 cv2.destroyAllWindows()
