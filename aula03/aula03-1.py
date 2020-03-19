@@ -30,13 +30,24 @@ for img in glob.glob("data/*.jpg"):
     n = cv2.putText(n,cutname(img),posicao, 1, 2, 0)
     images.append(n)
 
-i = 0
+ind  = 0
+i=1
+j=0
 while True:       
-   img = images[i]
+   img = images[ind]
+    for contador in range(11):           
+            i+=0.10
+            j-=0.10
+            n = cv2.addWeighted(img,i,img2,j,1)
+            cv2.imshow('Img',n)
+            cv2.waitKey(100)
+        i=1
+        j=0    
+        cv2.waitKey(1000)
    cv2.imshow("Fotos", img)
    cv2.waitKey(5000)
    cv2.addWeighted()
-   i+=1
+   ind+=1
    if cv2.waitKey(1) & 0xFF == ord('q'):
     break 
    if cv2.waitKey(1) & 0xFF == ord('Q'):
