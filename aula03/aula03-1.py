@@ -41,7 +41,7 @@ while ok:
     cv2.imshow('Img',n)
 
     for repete in range(3):
-        cv2.waitKey(1000) #espera por 5 segundos
+        cv2.waitKey(5000) #espera por 5 segundos
         if(ind<3): 
             for contador in range(5):           
                 i-=0.20
@@ -52,13 +52,15 @@ while ok:
             ind+=1
             i=1.0
             j=0.0   
-    
-    
-    if cv2.waitKey(0) == 0x51: #fecha janela ao pressionar Q 2 vezes(?)
-        ok=False     
-    if cv2.waitKey(0) == 0x71: #fecha janela ao pressionar 
-        ok=False    
- 
+
+#        if cv2.waitKeyEx() == 2555904: #seta direita
+#            ind+=1
+#        if cv2.waitKeyEx() == 2424832:  #seta esquerda
+#            ind-=1  
+
+    if cv2.waitKey() & 0xFF == ord('q','Q'): #fecha janela ao pressionar q ou Q
+        ok=False
+
 #
 cv2.destroyAllWindows()
 
